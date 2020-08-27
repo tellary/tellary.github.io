@@ -144,7 +144,8 @@ a:hover {
 	transition: all .3s linear;
 }
 
-a:hover {
+/* hover only in the header to avoid clashing with <a/> tag in source code */
+header a:hover {
 	color: #aaa;
 }
 
