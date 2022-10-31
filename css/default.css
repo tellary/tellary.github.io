@@ -91,6 +91,7 @@ section {
 	display: block;
 }
 
+/* Link <a/> style*/
 /* line: 136 */
 a {
 	margin: 0;
@@ -203,9 +204,10 @@ header .wide-container {
 	height: 100px;
 }
 
+/* line: 351 */
 header {
 	border-bottom: 1px solid #f5f5f5;
-	/* text-transform: lowercase; */
+	# text-transform: lowercase;
 }
 
 /* line: 391 */
@@ -226,22 +228,14 @@ footer {
 }
 
 /* line: 492 */
-/* nav.footer-menu removed */
-footer a,
-footer a:visited {
+footer nav.footer-menu a,
+footer nav.footer-menu a:visited {
 	color: #aaa;
-	/*text-transform: lowercase;*/
+	text-transform: lowercase;
 }
 
-/* nav.footer-menu removed */
-footer a:hover {
+footer nav.footer-menu a:hover {
 	color: #333;
-}
-
-/* line: 351 */
-header {
-	border-bottom: 1px solid #f5f5f5;
-	/* text-transform: lowercase; */
 }
 
 /* line: 571 */
