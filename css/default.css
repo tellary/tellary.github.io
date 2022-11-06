@@ -91,6 +91,17 @@ section {
 	display: block;
 }
 
+/* line: 94 */
+nav ul {
+	list-style: none;
+}
+
+/* Customization to have list items inline in footer */
+footer nav ul li {
+	display: inline;
+	padding: 0 15px;
+}
+
 /* Link <a/> style*/
 /* line: 136 */
 a {
