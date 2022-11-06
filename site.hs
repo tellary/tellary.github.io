@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Data.Maybe(fromJust)
 
 
 --------------------------------------------------------------------------------
@@ -44,18 +45,13 @@ main = hakyll $ do
                 >>= relativizeUrls
 
 
-    match "index.html" $ do
+    create ["index.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
-            let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    bodyField "body"
-
-            getResourceBody
-                >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
+          posts <- recentFirst =<< loadAll "posts/*"
+          let firstPost = head $ posts :: Item String
+          url <- fmap fromJust . getRoute $ itemIdentifier firstPost
+          makeItem $ Redirect url
 
     match "templates/*" $ compile templateBodyCompiler
 
