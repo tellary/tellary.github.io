@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
+import           Data.Maybe          (fromJust)
+import           Data.Monoid         (mappend)
 import           Hakyll
-import           Data.Maybe(fromJust)
-
+import           NextPrevPageContext
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -26,8 +26,8 @@ main = hakyll $ do
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtx "posts/*")
+            >>= loadAndApplyTemplate "templates/default.html" (postCtx "posts/*")
             >>= relativizeUrls
 
     create ["archive.html"] $ do
@@ -35,8 +35,9 @@ main = hakyll $ do
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let archiveCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Archives"            `mappend`
+                    listField "posts"
+                        (postCtx "posts/*") (return posts) `mappend`
+                    constField "title" "Archives"          `mappend`
                     defaultContext
 
             makeItem ""
@@ -57,7 +58,8 @@ main = hakyll $ do
 
 
 --------------------------------------------------------------------------------
-postCtx :: Context String
-postCtx =
+postCtx :: Pattern -> Context String
+postCtx ptrn =
+    nextPrevPageContext ptrn `mappend`
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
