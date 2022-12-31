@@ -7,5 +7,22 @@
     </h4>
     $body$
 </article>
-$if(prevUrl)$<a href="$prevUrl$">Previous post</a><br/>$endif$
-$if(nextUrl)$<a href="$nextUrl$">Next post</a>$endif$
+<h5/>
+<div class="home_bottom">
+</div>
+<div class="navigation">
+  $if(prevUrl)$
+  <p class="previous-post">
+    <span>Previous post:</span>
+    <br/>
+    <a href="$prevUrl$" rel="prev">Previous post name</a>
+  </p>
+  $endif$
+  $if(nextUrl)$
+  <p class="next-post">
+    <span>Next post:</span>
+    <br/>
+    <a href="$nextUrl$">Next post name</a>
+  </p>
+  $endif$
+</div>

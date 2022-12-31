@@ -188,6 +188,11 @@ ol li {
 	margin-bottom: 1em;
 }
 
+/* line: 280 */
+h5 {
+	margin: 2.5em 0;
+}
+
 /* line: 324 */
 /* container for body */
 .container {
@@ -276,4 +281,34 @@ footer nav.footer-menu a:hover {
 
 .post a:hover {
 	border-color: #666666;
+}
+
+/* line: 635 */
+/* line at bottom of post */
+.home_bottom {
+	border-bottom: 1px solid #f5f5f5;
+	font-size: 2em;
+	line-height: 2.5em;
+	color: #aaa;
+}
+
+/* previous & next posts at bottom */
+.navigation {
+	margin: 2.5em 0 5em 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.navigation p {
+	color: #aaa;
+}
+
+.navigation p.previous-post,
+.navigation p.next-post {
+	width: 50%;
+	font-weight: 400;
+}
+
+.navigation p.next-post {
+	text-align: right;
 }
