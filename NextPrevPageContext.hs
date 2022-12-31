@@ -9,10 +9,19 @@ url id = do
   let empty' = fail $ "No route url found for item " ++ show id
   fmap (maybe empty' toUrl) $ getRoute id
 
+title :: Identifier -> Compiler String
+title id = do
+  titleMaybe <- getMetadataField id "title"
+  case titleMaybe of
+    Just title -> return title
+    Nothing    -> fail $ "No title in " ++ show id
+
 nextPrevPageContext :: Pattern -> Context a
 nextPrevPageContext ptrn
   =  field "nextUrl" (\i -> (findNext . itemIdentifier $ i) >>= url)
   <> field "prevUrl" (\i -> (findPrev . itemIdentifier $ i) >>= url)
+  <> field "nextTitle" (\i -> (findNext . itemIdentifier $ i) >>= title)
+  <> field "prevTitle" (\i -> (findPrev . itemIdentifier $ i) >>= title)
   where
     nextPrevById
       :: Compiler [(Identifier, (Maybe Identifier, Maybe Identifier))]
