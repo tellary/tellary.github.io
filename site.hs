@@ -1,9 +1,10 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Maybe          (fromJust)
-import           Data.Monoid         (mappend)
-import           Hakyll
-import           NextPrevPageContext
+import Data.Maybe              (fromJust)
+import Data.Monoid             (mappend)
+import Hakyll
+import NextPrevPageContext     (nextPrevPageContext)
+import YearMonthArchiveContext (yearMonthArchiveContext)
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -33,13 +34,7 @@ main = hakyll $ do
     create ["archive.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
-            let archiveCtx =
-                    listField "posts"
-                        (postCtx "posts/*") (return posts) `mappend`
-                    constField "title" "Archives"          `mappend`
-                    defaultContext
-
+            let archiveCtx = yearMonthArchiveContext "posts/*"
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx

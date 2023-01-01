@@ -1,8 +1,8 @@
 module NextPrevPageContext(nextPrevPageContext) where
 
-import           Data.Functor ((<&>))
-import           Data.Monoid  ((<>))
-import           Hakyll
+import Data.Functor ((<&>))
+import Data.Monoid  ((<>))
+import Hakyll
 
 url :: Identifier -> Compiler String
 url id = do
@@ -18,8 +18,8 @@ title id = do
 
 nextPrevPageContext :: Pattern -> Context a
 nextPrevPageContext ptrn
-  =  field "nextUrl" (\i -> (findNext . itemIdentifier $ i) >>= url)
-  <> field "prevUrl" (\i -> (findPrev . itemIdentifier $ i) >>= url)
+  =  field "nextUrl"   (\i -> (findNext . itemIdentifier $ i) >>= url  )
+  <> field "prevUrl"   (\i -> (findPrev . itemIdentifier $ i) >>= url  )
   <> field "nextTitle" (\i -> (findNext . itemIdentifier $ i) >>= title)
   <> field "prevTitle" (\i -> (findPrev . itemIdentifier $ i) >>= title)
   where
