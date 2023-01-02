@@ -188,6 +188,18 @@ ol li {
 	margin-bottom: 1em;
 }
 
+/* line: 268 */
+/* subtitles */
+h3 {
+	font-size: 1.5em;
+	margin: 2em 0 1em 0;
+	text-align: center;
+}
+
+h4 {
+	font-size: 1em;
+}
+
 /* line: 280 */
 h5 {
 	margin: 2.5em 0;
@@ -226,6 +238,35 @@ header {
 	# text-transform: lowercase;
 }
 
+header .wide-container .title {
+	width: 20%;
+}
+
+header .wide-container .header-nav {
+	width: 60%;
+}
+
+header .wide-container .byline {
+	width: 20%;
+}
+
+header .header-nav .menu {
+	text-align: center;
+}
+
+header .header-nav .menu li {
+	display: inline;
+	padding: 0 15px;
+}
+
+header .header-nav .menu li a {
+	color: #777;
+}
+
+header .header-nav .menu li a:hover {
+	color: #333;
+}
+
 /* line: 391 */
 header .title h1 a {
 	font-weight: 400;
@@ -233,6 +274,20 @@ header .title h1 a {
 
 header .title h1 {
 	text-align: left;
+}
+
+header .byline h1 {
+	font-weight: 300;
+	text-align: right;
+}
+
+header .byline h1 a,
+header .byline h1 a:visited {
+	color: #aaa;
+}
+
+header .byline h1 a:hover {
+	color: #333;
 }
 
 /* line: 414 */
@@ -253,6 +308,44 @@ footer nav.footer-menu a:visited {
 footer nav.footer-menu a:hover {
 	color: #333;
 }
+
+/* line: 536 */
+/* archive page */
+
+.results {
+	margin-bottom: 5em;
+}
+
+.year h2 {
+	margin-bottom: 0;
+}
+
+.day p,
+.month h4 {
+	font-weight: 400;
+}
+
+.month h4 {
+	margin: 2em 0 1em 0;
+}
+
+.day p,
+.post-title p {
+	margin-bottom: 0;
+}
+
+.day p {
+	padding-right: 60px;
+    width: 1.2em; /*so that 1- and 2-digit dates are aligned the same*/
+}
+
+.day-title {
+	display: flex;
+	align-items: flex-start;
+	border-bottom: 1px solid #eee;
+	padding: 10px 0;
+}
+
 
 /* line: 571 */
 /* post styles */

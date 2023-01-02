@@ -31,12 +31,13 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" (postCtx "posts/*")
             >>= relativizeUrls
 
-    create ["archive.html"] $ do
+    create ["archives.html"] $ do
         route idRoute
         compile $ do
-            let archiveCtx = yearMonthArchiveContext "posts/*"
+            let archiveCtx = yearMonthArchiveContext "posts/*" `mappend`
+                             constField "title" "Archives"
             makeItem ""
-                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/archives.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
