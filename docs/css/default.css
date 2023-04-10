@@ -1,0 +1,414 @@
+/* Customizations */
+
+ul li,
+ol li {
+	margin-left: 1.2em;
+}
+/* End customizations */
+
+/* 24: */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+/* line: 94 */
+nav ul {
+	list-style: none;
+}
+
+/* Customization to have list items inline in footer */
+footer nav ul li {
+	display: inline;
+	padding: 0 15px;
+}
+
+/* Link <a/> style*/
+/* line: 136 */
+a {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+/* line: 202 */
+/* global styles */
+
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-family: nunito-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	background-color: #ffffff;
+	color: #333;
+	font-size: 18px;
+	line-height: 1.25em;
+	font-weight: 300;
+}
+
+/* Make sticky footer with flexbox as per
+   https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;    
+}
+
+.container {
+    flex: 1;
+}
+
+/* line: 228 */
+a:link,
+a:visited,
+a:hover {
+	color: #333;
+	text-decoration: none;
+	border: none;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	-ms-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	transition: all .3s linear;
+}
+
+a:hover {
+	color: #aaa;
+}
+
+/* line: 245 */
+/* heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 300;
+	text-align: center;
+	line-height: 1.25;
+}
+
+h2 {
+	font-size: 2em;
+	margin: 2.5em 0 1.25em 0;
+	text-align: center;
+}
+
+/* line: 217 */
+p,
+ul li,
+ol li {
+	line-height: 1.5em;
+	margin-bottom: 1em;
+}
+
+/* line: 268 */
+/* subtitles */
+h3 {
+	font-size: 1.5em;
+	margin: 2em 0 1em 0;
+	text-align: center;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+/* line: 280 */
+h5 {
+	margin: 2.5em 0;
+}
+
+/* line: 324 */
+/* container for body */
+.container {
+	overflow: hidden;
+	max-width: 32em;
+	margin: 0 auto;
+	padding: 0 2.5em;
+}
+
+/* wider container for header and footer elements */
+.wide-container {
+	max-width: 70em;
+	margin: 0 auto;
+	padding: 0 2.5em;
+	overflow: hidden;
+}
+
+/* header and navigation */
+header .wide-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	flex-wrap: nowrap;
+	height: 100px;
+}
+
+/* line: 351 */
+header {
+	border-bottom: 1px solid #f5f5f5;
+	# text-transform: lowercase;
+}
+
+header .wide-container .title {
+	width: 20%;
+}
+
+header .wide-container .header-nav {
+	width: 60%;
+}
+
+header .wide-container .byline {
+	width: 20%;
+}
+
+header .header-nav .menu {
+	text-align: center;
+}
+
+header .header-nav .menu li {
+	display: inline;
+	padding: 0 15px;
+}
+
+header .header-nav .menu li a {
+	color: #777;
+}
+
+header .header-nav .menu li a:hover {
+	color: #333;
+}
+
+/* line: 391 */
+header .title h1 a {
+	font-weight: 400;
+}
+
+header .title h1 {
+	text-align: left;
+}
+
+header .byline h1 {
+	font-weight: 300;
+	text-align: right;
+}
+
+header .byline h1 a,
+header .byline h1 a:visited {
+	color: #aaa;
+}
+
+header .byline h1 a:hover {
+	color: #333;
+}
+
+/* line: 414 */
+/* footer product cards and links */
+footer {
+	text-align: center;
+	background-color: #f5f5f5;
+	padding: 2.5em 0;
+}
+
+/* line: 492 */
+footer nav.footer-menu a,
+footer nav.footer-menu a:visited {
+	color: #aaa;
+	text-transform: lowercase;
+}
+
+footer nav.footer-menu a:hover {
+	color: #333;
+}
+
+/* line: 536 */
+/* archive page */
+
+.results {
+	margin-bottom: 5em;
+}
+
+.year h2 {
+	margin-bottom: 0;
+}
+
+.day p,
+.month h4 {
+	font-weight: 400;
+}
+
+.month h4 {
+	margin: 2em 0 1em 0;
+}
+
+.day p,
+.post-title p {
+	margin-bottom: 0;
+}
+
+.day p {
+	padding-right: 60px;
+    width: 1.2em; /*so that 1- and 2-digit dates are aligned the same*/
+}
+
+.day-title {
+	display: flex;
+	align-items: flex-start;
+	border-bottom: 1px solid #eee;
+	padding: 10px 0;
+}
+
+
+/* line: 571 */
+/* post styles */
+
+.post h4 {
+	margin-bottom: 2.5em;
+	font-size: 14px;
+	color: #aaa;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+/* line: 595 */
+.post a:link,
+.post a:visited {
+	text-decoration: none;
+	color: #333;
+	border-bottom: 2px solid #e2e2e2;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	-ms-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	transition: all .3s linear;
+}
+
+.post a:hover {
+	border-color: #666666;
+}
+
+/* line: 635 */
+/* line at bottom of post */
+.home_bottom {
+	border-bottom: 1px solid #f5f5f5;
+	font-size: 2em;
+	line-height: 2.5em;
+	color: #aaa;
+}
+
+/* previous & next posts at bottom */
+.navigation {
+	margin: 2.5em 0 5em 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.navigation p {
+	color: #aaa;
+}
+
+.navigation p.previous-post,
+.navigation p.next-post {
+	width: 50%;
+	font-weight: 400;
+}
+
+.navigation p.next-post {
+	text-align: right;
+}
