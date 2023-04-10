@@ -1,3 +1,11 @@
+/* Customizations */
+
+ul li,
+ol li {
+	margin-left: 1.2em;
+}
+/* End customizations */
+
 /* 24: */
 html,
 body,
