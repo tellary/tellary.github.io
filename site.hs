@@ -8,7 +8,7 @@ import YearMonthArchiveContext (yearMonthArchiveContext)
 
 --------------------------------------------------------------------------------
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith config $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -61,3 +61,8 @@ postCtx ptrn =
     nextPrevPageContext ptrn `mappend`
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+config
+  = defaultConfiguration
+  { deployCommand = "./site clean && ./site rebuild && find docs -maxdepth 1 | egrep -v '^docs$' | grep -v docs/CNAME | xargs rm -rf && cp -r _site/* docs/ && git commit -a -m \"Publish 'docs'\" && git push"
+  }
