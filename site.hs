@@ -46,7 +46,9 @@ main = hakyll $ do
         route idRoute
         compile $ do
           posts <- recentFirst =<< loadAll "posts/*"
-          let firstPost = head $ posts :: Item String
+          let firstPost = case posts of
+                (fp:_) -> fp :: Item String
+                [] -> error "No posts found"
           url <- fmap fromJust . getRoute $ itemIdentifier firstPost
           makeItem $ Redirect url
 
