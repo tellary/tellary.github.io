@@ -4,6 +4,19 @@ ul li,
 ol li {
 	margin-left: 1.2em;
 }
+
+header ul li,
+header ol li {
+	margin-left: 0em;
+}
+
+html {
+    /*
+     so that scroll is always visible and don't cause header movements
+     when going from a page with scrollbar to a page without scrollbar.
+     */
+    overflow-y: scroll;
+}
 /* End customizations */
 
 /* 24: */
@@ -106,8 +119,12 @@ nav ul {
 
 /* Customization to have list items inline in footer */
 footer nav ul li {
-	display: inline;
-	padding: 0 15px;
+    /*
+    inline-table instead of inline, so that footer list items don't have
+    their padding on new line, when place is constrained.
+    */
+    display: inline-table;
+    padding: 0 15px;
 }
 
 /* Link <a/> style*/
@@ -242,11 +259,13 @@ header .wide-container {
 /* line: 351 */
 header {
 	border-bottom: 1px solid #f5f5f5;
-	# text-transform: lowercase;
+	/* text-transform: lowercase; */
 }
 
 header .wide-container .title {
 	width: 20%;
+    /* Customization to fix title menu overlap: */
+    min-width: min-content;
 }
 
 header .wide-container .header-nav {
