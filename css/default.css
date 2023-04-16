@@ -9,6 +9,14 @@ header ul li,
 header ol li {
 	margin-left: 0em;
 }
+
+html {
+    /*
+     so that scroll is always visible and don't cause header movements
+     when going from a page with scrollbar to a page without scrollbar.
+     */
+    overflow-y: scroll;
+}
 /* End customizations */
 
 /* 24: */
