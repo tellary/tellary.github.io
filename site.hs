@@ -64,5 +64,15 @@ postCtx ptrn =
 
 config
   = defaultConfiguration
-  { deployCommand = "./site clean && ./site rebuild && find docs -maxdepth 1 | egrep -v '^docs$' | grep -v docs/CNAME | xargs rm -rf && cp -r _site/* docs/ && git commit -a -m \"Publish 'docs'\" && git push"
+  { deployCommand =
+    "./site clean && "
+    ++ "./site rebuild &&"
+    ++ ("find docs -maxdepth 1 | "
+        ++ "egrep -v '^docs$' | "
+        ++ "grep -v docs/CNAME | "
+        ++ "xargs rm -rf && ")
+    ++ "cp -r _site/* docs/ && "
+    ++ "git add docs/ &&"
+    ++ "git commit -a -m \"Publish 'docs'\" && "
+    ++ "git push"
   }
