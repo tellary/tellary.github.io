@@ -9,7 +9,7 @@ import YearMonthArchiveContext (yearMonthArchiveContext)
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyllWith config $ do
-    match "images/*" $ do
+    match "media/*" $ do
         route   idRoute
         compile copyFileCompiler
 
