@@ -43,7 +43,7 @@ The rest of the post covers use cases, existing applications, the motivation for
 
 ### Group travel
 
-As discussed, when traveling with friends, we want one person to pay and for an expense, and we want to capture all expenses with [The Money Split Application](https://split.apps.tellary.ru) to:
+As discussed, when traveling with friends, we want one person to pay for an expense, and we want to capture all expenses with [The Money Split Application](https://split.apps.tellary.ru) to:
 
 - Save time by avoiding separate payments,
 - Minimize payments needed to settle debts after the trip.
@@ -115,7 +115,7 @@ However, this must be done for **every** transaction. While in [The Money Split 
 
 ### Debt balance traceability
 
-Here is another screenshot from Settle Up showing debts accrued frome the same input as in [the sample](https://split-sample-data.apps.tellary.ru/).
+Here is another screenshot from Settle Up showing debts accrued from the same input as in [the sample](https://split-sample-data.apps.tellary.ru/).
 
 ![](/media/split_settleup_debts.png){width=80%}
 
@@ -181,7 +181,7 @@ Support for multiple workspaces is an important feature to implement.
 
 I'm not an expert in UX and am looking to collaborate with a UX engineer to improve the interface.
 
-Also, I'm plan to explore [Material Tailwind](https://www.material-tailwind.com/docs/html/installation)  to improve the UI and make the web version more mobile-friendly.
+Also, I plan to explore [Material Tailwind](https://www.material-tailwind.com/docs/html/installation)  to improve the UI and make the web version more mobile-friendly.
 
 I don't have immediate plans to create native iOS or Android applications. But I will create a [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview)/[WebView](https://developer.android.com/reference/android/webkit/WebView) based distributions for iOS and Android once the UX is improved and the interface is mobile friendly.
 
