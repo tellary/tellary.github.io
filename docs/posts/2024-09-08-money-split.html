@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+            <title>Ilya Silvestrov's blog - The Money Split Application</title>
+        
+        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" href="../css/code-kate.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="wide-container">
+                <div class="title">
+                    <h1>
+                        <a href="../index.html">Ilya Silvestrov's blog</a>
+                    </h1>
+                </div>
+                <nav class="header-nav">
+                    <ul class="menu">
+                        <li>
+                            <a href="../archives.html">archives</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="byline">
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            
+                <h2>The Money Split Application</h2>
+            
+            <article class="post">
+    <h4>
+        Posted on September  8, 2024
+        
+    </h4>
+    <p>I’ve been traveling with friends recently. Traveling with a group of friends incurs shared expenses:</p>
+<ul>
+<li>Someone pays for accomodation.</li>
+<li>Spliting a dinner cheque becomes less convenient for a larger company.</li>
+<li>There may be some other shared expenses, such as fuel for a car, tolls, or museum tickets bought by one person for everybody to save time.</li>
+</ul>
+<p>To manage this, I built <a href="https://split.apps.tellary.ru">The Money Split Application</a> and I use it for myself. The application allows to track shared expenses, to record who paid for an expense, and to specify how to split the expense. It then calculates the fewest transactions needed to settle debts, so everyone pays once at the end of a travel.</p>
+<p>While <a href="https://splitwise.com">Splitwise</a> and <a href="https://settleup.io">Settle Up</a> cover the same use case, they lack a <a href="#couple-features">couple features</a> I want. And my application <a href="https://github.com/tellary/split">is open-sourced</a>, ad-free, and will not push premium upgrades while the user executes a core use case.</p>
+<p>I didn’t finish the backend yet. So for now, expenses are stored in the browser, requiring one person to log all entries.</p>
+<p><a href="https://split-sample-data.apps.tellary.ru/">The sample deployment</a> with pre-populated sample data is available for readers to experiment with.</p>
+<h2 id="basic-usage">Basic usage</h2>
+<p>The simplest way of sharing an expense is “Split Equally to All” when everyone pays an equal share.</p>
+<p>Here is a sample Airbnb expense from one of our trips:</p>
+<p><img src="../media/split_airbnb_input.png" style="width:40.0%" /></p>
+<p>The report shows that the expense is indeed split equally with groups of two paying twice as much:</p>
+<p><img src="../media/split_airbnb_report.png" style="width:100.0%" /></p>
+<p>The data in these screenshots is available in the <a href="https://split-sample-data.apps.tellary.ru/">the sample deployment</a>.</p>
+<p>Other ways to split expenses include:</p>
+<ul>
+<li>“Split Equally”—among specific users, not all.</li>
+<li>“Itemized Split”—assigning specific amounts to each person.</li>
+</ul>
+<p>I encourage readers to explore the “Choose action type” dropdown under “Manage actions” in the <a href="https://split-sample-data.apps.tellary.ru/">sample deployment</a> or in <a href="https://split.apps.tellary.ru">the application itself</a> to discover ways to split expenses and record payments.</p>
+<p>The rest of the post covers use cases, existing applications, the motivation for this project, and other higher-level topics.</p>
+<h2 id="use-cases">Use cases</h2>
+<h3 id="group-travel">Group travel</h3>
+<p>As discussed, when traveling with friends, we want one person to pay and for an expense, and we want to capture all expenses with <a href="https://split.apps.tellary.ru">The Money Split Application</a> to:</p>
+<ul>
+<li>Save time by avoiding separate payments,</li>
+<li>Minimize payments needed to settle debts after the trip.</li>
+</ul>
+<h3 id="recurring-activity">Recurring activity</h3>
+<p>In 2013, I often went to lunch with coworkers, and we used <a href="https://www.splitwise.com/">Splitwise</a> to avoid splitting bills or paying each other back. The person who owed the most would pay for that day’s lunch.</p>
+<p>As a group doing a recurring activity together together, we want the person with the highest debt to pay the next bill, so that we</p>
+<ul>
+<li>Don’t split the bill, and</li>
+<li>Avoid money transfers.</li>
+</ul>
+<h3 id="fund-a-start-up">Fund a start-up</h3>
+<p>Another use case is funding a project. For example, two start-up founders—one pays for hosting and ads, the other for video production to promote the project to potential customers.</p>
+<p>As founders, we want to track expenses with the application to:</p>
+<ul>
+<li>Ensure balanced spending.</li>
+<li>Avoid direct transfers.</li>
+</ul>
+<p>These are just a few examples from my experience, but many other scenarios are possible.</p>
+<h2 id="existing-applications">Existing Applications</h2>
+<p><a href="https://splitwise.com">Splitwise</a> and <a href="https://settleup.io">Settle Up</a> are great for tracking shared expenses if you’re willing to pay $40 or $18 per year respectively. Both offer Android, iOS, and web versions, but they lack <span id="couple-features">couple features</span>:</p>
+<ul>
+<li><a href="#user-groups-support">User groups support</a>.</li>
+<li><a href="#debt-balance-traceability">Debt balance traceability</a>.</li>
+</ul>
+<p>Additionally, the free versions aggressively push premium upgrades, especially Splitwise, which:</p>
+<ul>
+<li>Forces users to watch a 1-minute ad to save each transaction.</li>
+<li>Limits free users to 5 transactions per day on Android.</li>
+</ul>
+<p>In contrast, The <a href="https://split.apps.tellary.ru">The Money Split Application</a> is <a href="https://github.com/tellary/split">open-source</a>, ad-free, and never pushes premium upgrades during core tasks.</p>
+<h3 id="user-groups-support">User groups support</h3>
+<p><a href="https://split.apps.tellary.ru">The Money Split Application</a> supports user groups to simplify “split equally” expenses when certain people have joined expenses.</p>
+<p><img src="../media/split_user_groups.png" style="width:35.0%" /></p>
+<p>As shown in the <a href="#basic-usage">Basic usage</a> section:</p>
+<ul>
+<li>Groups of two pay double compared to individuals, and</li>
+<li>Groups “owe” and “lend” together.</li>
+</ul>
+<p>Compare these reports, but remember, debts between “Dima and Alena” or “Tasha and Ilya” don’t matter when settling. Which is simpler?</p>
+<p>Without groups:</p>
+<p><img src="../media/split_without_groups.png" style="width:50.0%" /></p>
+<p>With groups:</p>
+<p><img src="../media/split_with_groups.png" style="width:65.0%" /></p>
+<p>Without groups, Alice must make two payments to Dima and Ilya. But with groups, the app minimizes Alice’s transactions by recognizing joined expenses of grouped users.</p>
+<p>Readers can recreate these screenshots by deleting groups under “Manage user groups” in <a href="https://split-sample-data.apps.tellary.ru/">the sample deployment</a>.</p>
+<p>“Split by shares” is the closest approximation to this feature in both Splitwise and Settle Up. For example in Settle Up you can create “joined users” by naming the account “X and Y” and assigning 2 shares to joint users in <strong>each</strong> transaction:</p>
+<p><img src="../media/split_settleup_shares.png" style="width:50.0%" /></p>
+<p>However, this must be done for <strong>every</strong> transaction. While in <a href="https://split.apps.tellary.ru">The Money Split Application</a>, user groups are set up once, and the application knows how to “split equally to all” with respect to group sizes without a need to specify “split by shares” each time.</p>
+<h3 id="debt-balance-traceability">Debt balance traceability</h3>
+<p>Here is another screenshot from Settle Up showing debts accrued frome the same input as in <a href="https://split-sample-data.apps.tellary.ru/">the sample</a>.</p>
+<p><img src="../media/split_settleup_debts.png" style="width:80.0%" /></p>
+<p>But why does Alice owe €124.33? You’d need to check the “Transactions” tab, find all her transactions, and sum them up to figure out.</p>
+<p>In <a href="https://split.apps.tellary.ru">The Money Split Application</a>, the report is expandable by user and expense. Clicking “expand” near <tt>“Alice owes 124.34 to Tasha and Ilya”</tt> entry shows only her transactions with a running total of the balance:</p>
+<p><img src="../media/split_debt_explanation.png" style="width:100.0%" /></p>
+<p>And clicking “expand” near the specific expense like <tt>“Cafe Papa in Coimbra”</tt> reveals how it was split and Alice’s share.</p>
+<p>This debt balance traceability helps catch input errors.</p>
+<h2 id="personal-motivation">Personal motivation</h2>
+<p>I get a lot of joy from using software I’ve written outside of work, though most of it consists of small command-line utilities or one-off scripts. For example, when I was buying a car recently, I wrote a small program to score car ads based on price, mileage, year, and engine power.</p>
+<p>I want to take my pet projects to the next level by making them accessible to others. However, as a backend engineer, I lack the frontend skills to <strong>quickly</strong> create user interfaces for my utilities.</p>
+<p>The main motivation for this project was to practice frontend development.</p>
+<p>When I tried Splitwise after a long break, I was surprised by how agressively it now pushes a user to buy a premium version. I saw this as an opportunity to practice, and I decided to create a free, <a href="https://github.com/tellary/split">open-source</a> alternative without ads that doesn’t hinder users in performing core tasks. Also, I wanted to add some features that are missing in existing applications to make it convenient for me to use.</p>
+<p>Being a Haskell geek, my secondary motivation for the project was to understand the concept of <a href="https://www.seas.upenn.edu/~cis1940/fall16/lectures/11-frp.html">Functional Reactive Programming (FRP)</a> by using it. So, I implemented the project using <a href="https://reflex-frp.org/">Reflex FRP</a>.</p>
+<h2 id="technical-details">Technical details</h2>
+<h3 id="client-side-heavy-project">Client-side heavy project</h3>
+<p>The project is client-side heavy, with all logic and validations handled on the client. This allows for offline use and makes the UI fast, with instant validation and updates.</p>
+<p>One “extreme” consequence of the offline support is that the project can be deployed in a client-only mode without a backend at all, as it is now. The JavaScript client is distributed via AWS CloudFront with an <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_Origin.html">S3 bucket origin</a></p>
+<p>However, this setup can lead to asynchronous editing conflicts. For example, what happens if one user deletes an expense offline while another updates it?</p>
+<p>There are several answers to this question, each with pros and cons. Weighting those is an interesting distributed systems design discussion, but I would leave it for another time. I will cover it in a future post once the backend for <a href="https://split.apps.tellary.ru">The Money Split Application</a> is implemented.</p>
+<h3 id="written-in-haskell">Written in Haskell</h3>
+<p>The project is implemented in Haskell using <a href="https://reflex-frp.org/">Reflex FRP</a> and is built with <a href="https://nixos.org/">Nix</a>. Haskell is compiled to Javascript using <a href="https://github.com/ghcjs/ghcjs">GHCJS</a>.</p>
+<p>This implies typical pros and cons of Haskell development which I’m not ready to discuss in this post, but rather refer to <a href="https://www.youtube.com/watch?v=qw4S_6FXsp4">this Scale by the Bay talk</a>.</p>
+<p>One visible consequence of this choice is rather large size of the generated Javascript. The application “weights” 7.5 megabytes after minification by the <a href="https://developers.google.com/closure/compiler">Javascript Closure Compiler</a>. For reference, Instagram’s web version loads 16.4 MB of JavaScript.</p>
+<h2 id="future-plans">Future plans</h2>
+<p>The immediate plans for the project are:</p>
+<h3 id="backend">Backend</h3>
+<p>The most important next step is implementing the backend, as collaborative editing isn’t possible without it.</p>
+<p>The current workaround—one person enters all expenses—works for some cases, like <a href="#group-travel">group travel</a>. For example, I now track all shared expenses when I travel with friends. However, it’s not suitable for others, like <a href="#recurring-activity">recurring activity</a>. For example, if the disignated bookkeeper in one vacation, then he can’t track who paid for the last lunch.</p>
+<h3 id="multiple-workspaces">Multiple workspaces</h3>
+<p>Currently, only one workspace is available for tracking expenses and payments. It’s not possible to manage expenses for different groups simultaneously. For instance, one can’t track coworker meals and, at the same time, track trip expenses with friends. The user must delete all actions to start over.</p>
+<p>Support for multiple workspaces is an important feature to implement.</p>
+<h3 id="improve-ux">Improve UX</h3>
+<p>I’m not an expert in UX and am looking to collaborate with a UX engineer to improve the interface.</p>
+<p>Also, I’m plan to explore <a href="https://www.material-tailwind.com/docs/html/installation">Material Tailwind</a> to improve the UI and make the web version more mobile-friendly.</p>
+<p>I don’t have immediate plans to create native iOS or Android applications. But I will create a <a href="https://developer.apple.com/documentation/webkit/wkwebview">WKWebView</a>/<a href="https://developer.android.com/reference/android/webkit/WebView">WebView</a> based distributions for iOS and Android once the UX is improved and the interface is mobile friendly.</p>
+<h2 id="dreams">Dreams</h2>
+<p>If the project gains users, I may consider adding useful paid features, but I will never limit or interfere with the core free functionality.</p>
+</article>
+<h5></h5>
+<div class="home_bottom">
+</div>
+<div class="navigation">
+  
+  <p class="previous-post">
+    <span>Previous post:</span>
+    <br />
+    <a href="../posts/2023-05-06-minesweeper.html" rel="prev">Minesweeper: A Haskell Primer</a>
+  </p>
+  
+  
+</div>
+
+        </div>
+
+        <footer>
+            <div class="wide-container">
+                <nav class="footer-menu">
+                    <ul>
+                        <li>
+                            Generated by
+                            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+                        </li>
+                        <li>
+                            Style from
+                            <a href="https://zenhabits.net/">Zenhabits</a>
+                        </li>
+                        <li>
+                            Sources at
+                            <a href="https://github.com/tellary/tellary.github.io">GitHub</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+    </body>
+</html>
