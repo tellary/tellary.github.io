@@ -10,11 +10,11 @@ I've been traveling with friends recently. Traveling with a group of friends inc
 
 To manage this, I built [The Money Split Application](https://split.apps.tellary.ru) and I use it for myself. The application allows to track shared expenses, to record who paid for an expense, and to specify how to split the expense. It then calculates the fewest transactions needed to settle debts, so everyone pays once at the end of a travel.
 
+[The sample deployment](https://split-sample-data.apps.tellary.ru/) with pre-populated sample data is available for readers to experiment with.
+
 While [Splitwise](https://splitwise.com) and [Settle Up](https://settleup.io) cover the same use case, they lack a [couple features](#couple-features) I want. And my application [is open-sourced](https://github.com/tellary/split), ad-free, and will not push premium upgrades while the user executes a core use case.
 
 I didn't finish the backend yet. So for now, expenses are stored in the browser, requiring one person to log all entries.
-
-[The sample deployment](https://split-sample-data.apps.tellary.ru/) with pre-populated sample data is available for readers to experiment with.
 
 ## Basic usage
 
