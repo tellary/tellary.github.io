@@ -173,9 +173,11 @@ The current workaround---one person enters all expenses---works for some cases, 
 
 ### Multiple workspaces
 
-Currently, only one workspace is available for tracking expenses and payments. It’s not possible to manage expenses for different groups simultaneously. For instance, one can't track coworker meals and, at the same time, track trip expenses with friends. The user must delete all actions to start over.
+UPDATE November 24, 2024: The multiple workspace support is implemented.
 
-Support for multiple workspaces is an important feature to implement.
+<s>Currently, only one workspace is available for tracking expenses and payments. It’s not possible to manage expenses for different groups simultaneously. For instance, one can't track coworker meals and, at the same time, track trip expenses with friends. The user must delete all actions to start over.
+
+Support for multiple workspaces is an important feature to implement.</s>
 
 ### Improve UX
 
