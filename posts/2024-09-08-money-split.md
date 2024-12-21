@@ -167,9 +167,13 @@ The immediate plans for the project are:
 
 ### Backend
 
-The most important next step is implementing the backend, as collaborative editing isn’t possible without it.
+UPDATE December 21, 2024: Synchronizing data via [automerge.org](https://automerge.org) is implemented.
 
-The current workaround---one person enters all expenses---works for some cases, like [group travel](#group-travel). For example, I now track all shared expenses when I travel with friends. However, it's not suitable for others, like [recurring activity](#recurring-activity). For example, if the disignated bookkeeper in one vacation, then he can't track who paid for the last lunch.
+The Money Split Application supports sharing workspace URLs and opening them on another devices by anyone who has a workspace link.
+
+<s>The most important next step is implementing the backend, as collaborative editing isn’t possible without it.
+
+The current workaround---one person enters all expenses---works for some cases, like [group travel](#group-travel). For example, I now track all shared expenses when I travel with friends. However, it's not suitable for others, like [recurring activity](#recurring-activity). For example, if the disignated bookkeeper in one vacation, then he can't track who paid for the last lunch.</s>
 
 ### Multiple workspaces
 
